@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ParseServer_Email_login_In_ Advance</string>
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <string name="back4app_app_id">6pw55JTss1nhJj860B8RM1BAXKqTG6jvgfRhRUKx</string>
+    <string name="back4app_client_key">6eOIuq1et2wbwmeh9DA9MnnuIhEymaEkNnqugUwZ</string>
+</resources>
