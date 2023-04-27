@@ -2,6 +2,7 @@ package com.example.parseserver_email_login_in_advance;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +48,8 @@ public class SignUpLoginActivity extends AppCompatActivity {
                         if (e == null){
                             Toast.makeText(SignUpLoginActivity.this, appuser.get("username")+" is signed up sucessfully", Toast.LENGTH_SHORT).show();
 
+                            Intent intent = new Intent(SignUpLoginActivity.this , WelcomeActivity.class);
+                            startActivity(intent);
 
                         }else {
                             Toast.makeText(SignUpLoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -71,6 +74,9 @@ public class SignUpLoginActivity extends AppCompatActivity {
 
                                     Toast.makeText(SignUpLoginActivity.this, user.get("username")+ " is LogedIn successfully", Toast.LENGTH_SHORT).show();
                                     //FancyToast.makeText(SignUpLoginActivity.this,user.get("username")+ " is LogedIn successfully",FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,true);
+
+                                    Intent intent = new Intent(SignUpLoginActivity.this , WelcomeActivity.class);
+                                    startActivity(intent);
 
                                 }
                                 else {

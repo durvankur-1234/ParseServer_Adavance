@@ -17,6 +17,13 @@
         android:theme="@style/Theme.ParseServer_Email_login_In_Advance"
         tools:targetApi="31">
         <activity
+            android:name=".WelcomeActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SignUpLoginActivity"
             android:exported="false">
             <meta-data
