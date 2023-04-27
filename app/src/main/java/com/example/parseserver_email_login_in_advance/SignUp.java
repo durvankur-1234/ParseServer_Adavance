@@ -3,6 +3,7 @@ package com.example.parseserver_email_login_in_advance;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     private String allKickboxer ;
 
+    private Button btnTransition ;
+
 
 
 
@@ -55,6 +58,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         txtGetData = findViewById(R.id.txtGetData);
         btnGetAllData = findViewById(R.id.btnGetAllData);
 
+        btnTransition = findViewById(R.id.btnNextActivity);
+
         btnGetAllData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +67,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                 allKickboxer = "";
                 ParseQuery<ParseObject> queryAll = ParseQuery.getQuery("KickBoxer");
 
+                queryAll.whereGreaterThan("punchPower",1000);
+                queryAll.setLimit(1);
                 queryAll.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
@@ -89,11 +96,22 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
             }
         });
 
+        btnTransition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(SignUp.this , SignUpLoginActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
         txtGetData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
 
             ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("KickBoxer");
+
             parseQuery.getInBackground("SPQYHui5tw", new GetCallback<ParseObject>() {
                 @SuppressLint("SetTextI18n")
                 @Override
